@@ -20,7 +20,7 @@ import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ExpandableListView.ExpandableListContextMenuInfo;
-
+//TODO: Will probably need to change ' to \' and ampersands accordingly 
 public class MainActivity extends Activity {
 
 	private LinkedHashMap<Item,ArrayList<Item>> groupList;
@@ -52,7 +52,7 @@ public class MainActivity extends Activity {
 			ArrayList<Item> groupMembers =new ArrayList<Item>();
 			for(int i=0;i<ids.length;i++){
 				String groupId = ids[i];
-				Log.i("GroupId",groupId);
+				//				Log.i("GroupId",groupId);
 				groupMembers.addAll(fetchGroupMembers(groupId));
 			}
 
@@ -136,13 +136,9 @@ public class MainActivity extends Activity {
 			else {
 				item.id=groupName = "Shopping";
 			}
-			
 			item.name = groupName;
-
-			groupList.add(item);
-			System.out.println("the Group List is: " + groupList.toString());
+			groupList.add(item);	
 		}
-
 		Collections.sort(groupList,new Comparator<Item>() {
 
 			public int compare(Item item1, Item item2) {
@@ -156,7 +152,7 @@ public class MainActivity extends Activity {
 
 	private ArrayList<Item> fetchGroupMembers(String groupId){
 		ArrayList<Item> groupMembers = new ArrayList<Item>(); 
-		
+
 		if(groupId.equals("Active Life")) {
 			String[] toAdd = {"active life","amateur sports teams","amusement parks","aquariums","archery","badminton","bathing area","beaches","bicycle paths","bike rentals","boating","bowling","bungee jumping","climbing","disc golf","diving","free diving","scuba diving","experiences","fishing","fitness & instruction","barre classes","boot camps","boxing","dance studios","gyms","martial arts","pilates","swimming lessons/schools","tai chi","trainers","yoga","gliding","go karts","golf","gun/rifle ranges","gymnastics","hang gliding","hiking","horse racing","horseback riding","hot air balloons","indoor playcentre","kids activities","kiteboarding","lakes","laser tag","lawn bowling","leisure centers","mini golf","mountain biking","nudist","paddleboarding","paintball","parks","dog parks","skate parks","playgrounds","public plazas","rafting/kayaking","recreation centers","rock climbing","sailing","skating rinks","skiing","skydiving","soccer","spin classes","sport equipment hire","sports clubs","squash","summer camps","surfing","swimming pools","tennis","trampoline parks","tubing","zoos","zorbing"};
 			groupMembers = addMyMembers(toAdd);
@@ -177,7 +173,7 @@ public class MainActivity extends Activity {
 			String[] toAdd = {"bicycles","bike associations","bike repair","bike shop","special bikes"};
 			groupMembers = addMyMembers(toAdd);
 		}
-		
+
 		else if(groupId.equals("Education")) {
 			String[] toAdd = {"education","adult education","college counseling","colleges & universities","educational services","elementary schools","middle schools & high schools","preschools","private schools","private tutors","religious schools","special education","specialty schools","art schools","cpr classes","circus schools","cooking schools","cosmetology schools","dance schools","driving schools","first aid classes","flight instruction","language schools","massage schools","swimming lessons/schools","vocational & technical school","test preparation","tutoring centers"};
 			groupMembers = addMyMembers(toAdd);
@@ -250,7 +246,6 @@ public class MainActivity extends Activity {
 			String[] toAdd = {"shopping","adult","antiques","art galleries","arts & crafts","art supplies","cards & stationery","costumes","embroidery & crochet","fabric stores","framing","auction houses","baby gear & furniture","bespoke clothing","books, mags, music & video","bookstores","comic books","music & dvds","newspapers & magazines","videos & video game rental","vinyl records","bridal","chinese bazaar","computers","concept shops","cosmetics & beauty supply","department stores","discount store","drugstores","electronics","eyewear & opticians","fashion","accessories","children's clothing","department stores","formal wear","hats","leather goods","lingerie","maternity wear","men's clothing","plus size fashion","shoe stores","sleepwear","sports wear","surf shop","swimwear","used, vintage & consignment","women's clothing","fireworks","flea markets","flowers & gifts","cards & stationery","florists","flowers","gift shops","golf equipment shops","guns & ammo","hobby shops","home & garden","appliances","furniture stores","hardware stores","home decor","hot tub & pool","kitchen & bath","linens","mattresses","nurseries & gardening","tableware","jewelry","kiosk","knitting supplies","luggage","market stalls","medical supplies","mobile phones","motorcycle gear","musical instruments & teachers","office equipment","outlet stores","pawn shops","perfume","personal shopping","photography stores & services","pop-up shops","scandinavian design","shopping centers","souvenir shops","spiritual shop","sporting goods","bikes","golf equipment","outdoor gear","sports wear","thrift stores","tickets","tobacco shops","toy stores","trophy shops","uniforms","used bookstore","watches","wholesale stores","wigs"};
 			groupMembers = addMyMembers(toAdd);
 		}
-
 		return groupMembers;
 	}
 

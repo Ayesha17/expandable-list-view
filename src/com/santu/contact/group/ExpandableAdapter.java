@@ -107,15 +107,17 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
 							if (!siblings.isChecked) {
 								isAllChildClicked = false;
 								//if(DataHolder.checkedChilds.containsKey(child.name)==false){
-									DataHolder.checkedChilds.put(child.name,
-											parentGroup.name);
-							//	}
+								DataHolder.checkedChilds.put(child.name,
+										parentGroup.name);
+								//	}
 								break;
 							}
 						}
 					}
 
 					if (isAllChildClicked) {
+						Log.i("All should be checked", "All child is Clicked!!");
+						
 						parentGroup.isChecked = true;
 						if(!(DataHolder.checkedChilds.containsKey(child.name)==true)){
 							DataHolder.checkedChilds.put(child.name,
@@ -186,8 +188,8 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
 		}
 
 		holder.imageView
-				.setImageResource(groupStatus[groupPosition] == 0 ? R.drawable.group_down
-						: R.drawable.group_up);
+		.setImageResource(groupStatus[groupPosition] == 0 ? R.drawable.group_down
+				: R.drawable.group_up);
 		final Item groupItem = getGroup(groupPosition);
 
 		holder.title.setText(groupItem.name);
@@ -198,8 +200,12 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
 					boolean isChecked) {
 				if (checkAll) {
 					ArrayList<Item> childItem = getChild(groupItem);
-					for (Item children : childItem)
+					for (Item children : childItem) {
 						children.isChecked = isChecked;
+						Log.i("Children being checked off!", "this child is checked: " +children.toString());
+						//TODO: Here you need to add all items to blacklist!!
+					}
+					
 				}
 				groupItem.isChecked = isChecked;
 				notifyDataSetChanged();
