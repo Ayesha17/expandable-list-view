@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
 
 		ArrayList<Item> groupsList = fetchGroups();
 		Log.i("GroupsListSize",String.valueOf(groupsList.size()));
-		//if(groupList.size()>0){
+
 		for(Item item:groupsList){
 			Log.i("Item id",item.id);
 
@@ -61,7 +61,7 @@ public class MainActivity extends Activity {
 			item.name = item.name +" ("+groupMembers.size()+")";
 			groupList.put(item,groupMembers);
 		}
-		//}
+
 
 	}
 
@@ -70,28 +70,104 @@ public class MainActivity extends Activity {
 	private ArrayList<Item> fetchGroups(){
 		ArrayList<Item> groupList = new ArrayList<Item>();
 		
-		ArrayList<String> groupTitle = new ArrayList<String>();
+
 
 		//List each group 
-		for(int i=0; i<5; i++){
+		for(int i=0; i<21; i++){
+
+		
+			
 			Item item = new Item();
 			String groupName; 
-			if(i%2==3) {
-				groupName = "Aleph";
-				item.id="Aleph";
+			if(i==0) {
+				groupName = "Active Life";
+				item.id = "Active Life";
 			}
-			else if(i%4==1) {
-				groupName = "Bet";
-				item.id="Bet";
+			else if(i==1) {
+				groupName = "Arts & Entertainment";
+				item.id = "Arts & Entertainment";
+			}
+			else if(i==2) {
+				groupName = "Automotive";
+				item.id = "Automotive";
+			}
+			else if(i==3) {
+				groupName = "Beauty &s Spas";
+				item.id = "Beauty & Spas";
+			}
+			else if(i==4) {
+				groupName = "Bicycles";
+				item.id = "Bicycles";
+			}
+			else if(i==5) {
+				groupName = "Education";
+				item.id = "Education";
+			}
+			else if(i==6) {
+				groupName = "Event Planning & Services";
+				item.id = "Event Planning & Services";
+			}
+			else if(i==7) {
+				groupName = "Food";
+				item.id = "Food";
+			}
+			else if(i==8) {
+				groupName = "Health & Medical";
+				item.id = "Health & Medical";
+			}
+			else if(i==9) {
+				groupName = "Home Services";
+				item.id = "Home Services";
+			}
+			else if(i==10) {
+				groupName = "Hotels & Travel";
+				item.id = "Hotels & Travel";
+			}
+			else if(i==11) {
+				groupName = "Local Flavor";
+				item.id = "Local Flavor";
+			}
+			else if(i==12) {
+				groupName = "Local Services";
+				item.id = "Local Services";
+			}
+			else if(i==13) {
+				groupName = "Mass Media";
+				item.id = "Mass Media";
+			}
+			else if(i==14) {
+				groupName = "Night Life";
+				item.id = "Night Life";
+			}
+			else if(i==15) {
+				groupName = "Pets";
+				item.id = "Pets";
+			}
+			else if(i==16) {
+				groupName = "Professional Services";
+				item.id = "Professional Services";
+			}
+			else if(i==17) {
+				groupName = "Public Services & Government";
+				item.id = "Public Services & Government";
+			}
+			else if(i==18) {
+				groupName = "Real Estate";
+				item.id = "Real Estate";
+			}
+			else if(i==19) {
+				groupName = "Religious Organizations";
+				item.id = "Religious Organizations";
+			}
+			else if(i==20) {
+				groupName = "Restaurants";
+				item.id = "Restaurants";
 			}
 			else {
-				groupName = "Gimmel";
-				item.id="Gimmel";
+				groupName = "Shopping";
+				item.id = "Shopping";
 			}
-
-
-			groupTitle.add(groupName);
-			System.out.println("the Group Title is: " +groupTitle.toString());
+			
 			item.name = groupName;
 
 			groupList.add(item);
