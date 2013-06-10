@@ -60,7 +60,6 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
 		for (Map.Entry<Item, ArrayList<Item>> mapEntry : groupList.entrySet()) {
 			mainGroup.add(mapEntry.getKey());
 		}
-
 	}
 
 	public Item getChild(int groupPosition, int childPosition) {
@@ -78,7 +77,7 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
 	public View getChildView(final int groupPosition, int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-
+		
 		final ChildHolder holder;
 		if (convertView == null) {
 			convertView = layoutInflater.inflate(R.layout.group_item, null);
@@ -86,18 +85,22 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
 			holder.cb = (CheckBox) convertView.findViewById(R.id.cb);
 			holder.title = (TextView) convertView.findViewById(R.id.title);
 			convertView.setTag(holder);
-		} else {
+		} 
+		else {
 			holder = (ChildHolder) convertView.getTag();
 		}
 		final Item child = getChild(groupPosition, childPosition);
 		holder.cb.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
+			
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
 				Item parentGroup = getGroup(groupPosition);
 				child.isChecked = isChecked;
+				
+				//if the CHILD is checked
+				//TODO: Here add/remove from list 
+				
 				if (isChecked) {
-					// child.isChecked =true;
 					ArrayList<Item> childList = getChild(parentGroup);
 					int childIndex = childList.indexOf(child);
 					boolean isAllChildClicked = true;
@@ -114,10 +117,10 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
 							}
 						}
 					}
-
+					
+					//All the children are checked
 					if (isAllChildClicked) {
-						Log.i("All should be checked", "All child is Clicked!!");
-						
+						Log.i("All should be checked", "Each child is Clicked!!");
 						parentGroup.isChecked = true;
 						if(!(DataHolder.checkedChilds.containsKey(child.name)==true)){
 							DataHolder.checkedChilds.put(child.name,
@@ -125,8 +128,9 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
 						}
 						checkAll = false;
 					}
-
-				} else {
+				} 
+				//not all of the children are checked
+				else {
 					if (parentGroup.isChecked) {
 						parentGroup.isChecked = false;
 						checkAll = false;
@@ -138,14 +142,11 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
 					// child.isChecked =false;
 				}
 				notifyDataSetChanged();
-
 			}
-
 		});
-
 		holder.cb.setChecked(child.isChecked);
 		holder.title.setText(child.name);
-		Log.i("childs are", DataHolder.checkedChilds.toString());
+		Log.i("The childs/children is/are: ", DataHolder.checkedChilds.toString());
 		return convertView;
 	}
 
@@ -169,6 +170,7 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	//works with the GroupView
 
 	public View getGroupView(final int groupPosition, boolean isExpanded,
 			View convertView, ViewGroup parent) {
@@ -195,17 +197,17 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
 		holder.title.setText(groupItem.name);
 
 		holder.cb.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
+			
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
 				if (checkAll) {
+					Log.i("All items should be affected!!", "All are being affected");
 					ArrayList<Item> childItem = getChild(groupItem);
+					
 					for (Item children : childItem) {
 						children.isChecked = isChecked;
-						Log.i("Children being checked off!", "this child is checked: " +children.toString());
-						//TODO: Here you need to add all items to blacklist!!
+						//TODO: Here update the list 
 					}
-					
 				}
 				groupItem.isChecked = isChecked;
 				notifyDataSetChanged();
