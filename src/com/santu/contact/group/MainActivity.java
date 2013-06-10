@@ -80,92 +80,73 @@ public class MainActivity extends Activity {
 			Item item = new Item();
 			String groupName; 
 			if(i==0) {
-				groupName = "Active Life";
-				item.id = "Active Life";
+				item.id = groupName = "Active Life";
+				
 			}
 			else if(i==1) {
-				groupName = "Arts & Entertainment";
-				item.id = "Arts & Entertainment";
+				item.id = groupName = "Arts & Entertainment";
+
 			}
 			else if(i==2) {
-				groupName = "Automotive";
-				item.id = "Automotive";
+				item.id = groupName = "Automotive";
 			}
 			else if(i==3) {
-				groupName = "Beauty &s Spas";
-				item.id = "Beauty & Spas";
+				item.id = groupName = "Beauty &s Spas";
 			}
 			else if(i==4) {
-				groupName = "Bicycles";
-				item.id = "Bicycles";
+				item.id =groupName = "Bicycles";
 			}
 			else if(i==5) {
-				groupName = "Education";
-				item.id = "Education";
-			}
+				item.id =groupName = "Education";
+			} 
 			else if(i==6) {
-				groupName = "Event Planning & Services";
+				item.id = groupName = "Event Planning & Services";
 				item.id = "Event Planning & Services";
 			}
 			else if(i==7) {
-				groupName = "Food";
-				item.id = "Food";
+				item.id=groupName = "Food";
 			}
 			else if(i==8) {
-				groupName = "Health & Medical";
-				item.id = "Health & Medical";
+				item.id=groupName = "Health & Medical";
 			}
 			else if(i==9) {
-				groupName = "Home Services";
-				item.id = "Home Services";
+				item.id=groupName = "Home Services";
 			}
 			else if(i==10) {
-				groupName = "Hotels & Travel";
-				item.id = "Hotels & Travel";
+				item.id=groupName = "Hotels & Travel";
 			}
 			else if(i==11) {
-				groupName = "Local Flavor";
-				item.id = "Local Flavor";
+				item.id=groupName = "Local Flavor";
 			}
 			else if(i==12) {
-				groupName = "Local Services";
-				item.id = "Local Services";
+				item.id= groupName = "Local Services";
 			}
 			else if(i==13) {
-				groupName = "Mass Media";
-				item.id = "Mass Media";
+				item.id=groupName = "Mass Media";
 			}
 			else if(i==14) {
-				groupName = "Night Life";
-				item.id = "Night Life";
+				item.id=groupName = "Night Life";
 			}
 			else if(i==15) {
-				groupName = "Pets";
-				item.id = "Pets";
+				item.id=groupName = "Pets";
 			}
 			else if(i==16) {
-				groupName = "Professional Services";
-				item.id = "Professional Services";
+				item.id=groupName = "Professional Services";
 			}
 			else if(i==17) {
-				groupName = "Public Services & Government";
-				item.id = "Public Services & Government";
+				item.id=groupName = "Public Services & Government";
 			}
 			else if(i==18) {
-				groupName = "Real Estate";
-				item.id = "Real Estate";
+				item.id=groupName = "Real Estate";
 			}
 			else if(i==19) {
-				groupName = "Religious Organizations";
-				item.id = "Religious Organizations";
+				item.id=groupName = "Religious Organizations";
 			}
 			else if(i==20) {
-				groupName = "Restaurants";
-				item.id = "Restaurants";
+				item.id=groupName = "Restaurants";
 			}
 			else {
-				groupName = "Shopping";
-				item.id = "Shopping";
+				item.id=groupName = "Shopping";
 			}
 			
 			item.name = groupName;
